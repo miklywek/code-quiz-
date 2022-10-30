@@ -13,7 +13,7 @@ var questions = [
     answer2: "Base Ball",
     answer3: "Boxing",
     answer4: "Tenis",
-    correct: "Boxing",
+    correct: "Soccer",
   },
   {
     question: "Math.random() returns ____.?",
@@ -41,6 +41,7 @@ var questions = [
     correct: "==",
   },
 ];
+localStorage.setItem("highscores", "test string");
 var inputLine = document.getElementById("inlineFormInput");
 const countDownEl = document.getElementById("countDown");
 const startBtn = document.querySelector(".start-btn");
@@ -50,9 +51,12 @@ var submitButton = document.getElementById("buttonInitials");
 var yourScore = document.querySelector(".display-3");
 var containerAgree = document.querySelector(".container-aggregate");
 var buttonWraper = document.querySelector(".button-wraper");
+var showScore = document.querySelector(".showHightScore");
 var totalScore = 0;
+var parsScoce;
+var heightScore;
 
-var secondsLeft = 1000;
+var secondsLeft = 50;
 
 function setTime() {
   var timerInterval = setInterval(function () {
@@ -63,8 +67,8 @@ function setTime() {
       cardQuestions.setAttribute("style", "display: none");
       display.setAttribute("style", "display: none");
       startBtn.setAttribute("style", "display: none");
-      submitButton.setAttribute("style", "display: inline");
-      containerAgree.setAttribute("style", "display: block");
+      submitButton.setAttribute("style", "display: block");
+      containerAgree.setAttribute("style", "display: flex");
 
       yourScore.textContent = "Your score is: " + totalScore;
       yourScore.setAttribute("style", "dispaly: inline");
@@ -76,6 +80,12 @@ function setTime() {
     clearInterval(timerInterval);
   }
 }
+function displayHightScore() {
+  var showHightScore = JSON.parse(heightScore);
+  showScore.textContent = showHightScore.initials + showHightScore.totalScore;
+}
+showScore.addEventListener("click", displayHightScore);
+
 function startGame() {
   setTime();
   firstQuestion();
@@ -131,33 +141,18 @@ buttonWraper.addEventListener("click", function (event) {
 
 submitButton.addEventListener("click", function (event) {
   event.stopPropagation();
-
-  var highscores = [];
-  console.dir(inputLine);
   var initials = inputLine.value;
-  console.log(inputLine.value);
-  console.log(highscores);
-
   var finalScore = { initials, totalScore };
-  console.log(finalScore);
-
-  // Send to localStorage
-
-  highscores.push(finalScore);
-  localStorage.setItem("highscores", JSON.stringify(finalScore));
+  heightScore = localStorage.getItem("finalScore");
+  if (heightScore) {
+    parsScoce = JSON.parse(heightScore);
+    if (finalScore.totalScore > parsScoce.totalScore) {
+      localStorage.setItem("finalScore", JSON.stringify(finalScore));
+      heightScore = localStorage.getItem("finalScore");
+    }
+  } else {
+    localStorage.setItem("finalScore", JSON.stringify(finalScore));
+  }
 });
-
-var playerName;
-var playerScore;
-var gameResult = {};
-var highscoreList = [];
-
-function toHighscoreList() {
-  playerName = $("#nameTag").text();
-  playerScore = guessedWrong.length;
-
-  gameResult = { player: playerName, score: playerScore };
-  highscoreList[highscoreList.length] = gameResult;
-}
 
 startBtn.addEventListener("click", startGame);

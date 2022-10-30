@@ -61,6 +61,11 @@ header {
   min-width: 400px;
   height: 250px;
   margin: 70px auto;
+  align-items: center;
+  justify-content: center;
+}
+.container-aggregate input {
+  margin: 8px;
 }
 .button-wraper {
   margin: 5px;
