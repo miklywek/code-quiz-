@@ -1,0 +1,72 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  color: purple;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  margin: 25px;
+  font-size: 20px;
+}
+
+.content {
+  border: 2px solid purple;
+  border-radius: 10px;
+  width: 400px;
+  margin: 70px auto;
+}
+.content h1 {
+  margin: 15px;
+  text-align: center;
+}
+.content p {
+  margin: 15px;
+}
+.button-content {
+  display: flex;
+  justify-content: center;
+  margin: 15px;
+  color: purple;
+}
+#questionsCard {
+  display: none;
+  border: 2px solid purple;
+  border-radius: 10px;
+  max-width: 400px;
+  margin: 70px auto;
+}
+.card-body {
+  height: 200px;
+}
+#correctIncorrect {
+  margin: 25px;
+  text-align: center;
+}
+.card-text,
+.card-title {
+  margin: 15px;
+  text-align: center;
+}
+.container-aggregate {
+  display: none;
+  border: 2px solid purple;
+  border-radius: 10px;
+  min-width: 400px;
+  height: 250px;
+  margin: 70px auto;
+}
+.button-wraper {
+  margin: 5px;
+}
+.button-wraper button {
+  width: 190px;
+  text-align: center;
+  margin: 4px 0;
+}

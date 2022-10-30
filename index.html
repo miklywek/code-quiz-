@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/style.css" />
+  </head>
+  <body>
+    <header>
+      <article>View Highescore</article>
+      <article id="countDown">Time: 0</article>
+    </header>
+    <main>
+      <div class="content">
+        <div class="start-content">
+          <h1>Coding Quiz Chellenge</h1>
+          <p>
+            Try to answer the following code-related question within the time
+            limit. Keep in mind that incorect answers will penalize your score
+            time by ten second!
+          </p>
+        </div>
+        <div class="button-content">
+          <button class="start-btn">Start Quize</button>
+        </div>
+      </div>
+      <div class="container-aggregate">
+        <h2 class="display-3">Your final score is:</h2>
+        <input
+          type="text"
+          id="inlineFormInput"
+          placeholder="Enter your initials"
+        />
+        <button id="buttonInitials">Submit</button>
+      </div>
+      <div id="questionsCard">
+        <div class="card-body">
+          <h5 class="card-title">Questions</h5>
+          <p class="card-text" id="questions"></p>
+          <div class="button-wraper">
+            <button class="quizBtn" id="button1">Go somewhere</button>
+
+            <button class="quizBtn" id="button2">Go somewhere</button>
+
+            <button class="quizBtn" id="button3">Go somewhere</button>
+
+            <button class="quizBtn" id="button4">Go somewhere</button>
+          </div>
+          <div class="row buttonRow">
+            <p id="correctIncorrect"></p>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="./assets/style.js"></script>
+  </body>
+</html>
